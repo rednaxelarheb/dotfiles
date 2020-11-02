@@ -1,13 +1,7 @@
 export TERM=xterm-256color
 set -o vi
-PS1="\[\033[1;33m\]:) \[\033[1;30m\]\w \[\033[1;31m\]>\[\033[1;33m\]>\[\033[1;32m\]>\[\033[0m\] "
 
 alias ls='ls -G'
-alias ssh-edlab='ssh abehr@elnux.cs.umass.edu'
-
-export PATH=$PATH:~/scripts
-export PATH=$PATH:~/scripts/keepers
-export PATH=$PATH:/Users/abehr/Library/Python/3.8/bin
 
 # If not running interactively, don't do anything
 case $- in
@@ -33,19 +27,6 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -104,15 +85,6 @@ alias gitl='git log --all --decorate --oneline --graph'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -127,24 +99,5 @@ fi
 # New colors for terminal
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# pyenv requirements
-# export PATH="/Users/abehr/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
 . $HOME/.profile
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/abehr/tools/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/abehr/tools/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/abehr/tools/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/abehr/tools/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
